@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Container} from "./components/Container";
+import {useGetMessagesQuery} from './store/reducers/messages.api';
+import {FormSendMessage} from "./components/Form/FormSendMessage";
+import {Comments} from "./components/MessageContent/Comments";
+import {SectionMessage} from "./components/SectionMain"
+import {PostComment} from "./components/PostComment";
 
 function App() {
+    const {isLoading, data: messages, error} = useGetMessagesQuery("comments");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+        {messages?.map((message) => <Comments key={message.id} singleComment={message} />)}
+        <PostComment/>
+
+    </Container>
   );
 }
 

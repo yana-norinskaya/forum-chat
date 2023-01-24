@@ -1,0 +1,123 @@
+{
+  "currentUser": {
+    "image": {
+      "png": "https://hashtagme.ae/images/avtar.png",
+      "webp": "https://hashtagme.ae/images/avtar.png"
+    },
+    "username": "juliusomo"
+  },
+  "comments": [
+    {
+      "id": 1,
+      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon.",
+      "createdAt": "1 month ago",
+      "score": 17,
+      "user": {
+        "image": {
+          "png": "https://www.bennevuez.com.hk/wp-content/uploads/2017/09/circled_user_female1600-999x999.png",
+          "webp": "https://www.bennevuez.com.hk/wp-content/uploads/2017/09/circled_user_female1600-999x999.png"
+        },
+        "username": "amyrobson"
+      },
+      "replies": [
+        {
+          "id": 0.9206585760915837,
+          "content": "fgrewgerqg",
+          "createdAt": "2 min ago",
+          "score": 8,
+          "replyingTo": "amyrobson",
+          "user": {
+            "image": {
+              "png": "https://hashtagme.ae/images/avtar.png",
+              "webp": "https://hashtagme.ae/images/avtar.png"
+            },
+            "username": "juliusomo"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      "createdAt": "2 weeks ago",
+      "score": 5,
+      "user": {
+        "image": {
+          "png": "https://forum.netcup.de/system/images/avatars/e8/1215-e84a6e1d30abdfd4d75c8b9e4753b55eb721c478.png",
+          "webp": "https://forum.netcup.de/system/images/avatars/e8/1215-e84a6e1d30abdfd4d75c8b9e4753b55eb721c478.png"
+        },
+        "username": "maxblagun"
+      },
+      "replies": [
+        {
+          "id": 0.7167063876543647,
+          "content": "Hello",
+          "createdAt": "2 min ago",
+          "score": 3,
+          "replyingTo": "maxblagun",
+          "user": {
+            "image": {
+              "png": "https://hashtagme.ae/images/avtar.png",
+              "webp": "https://hashtagme.ae/images/avtar.png"
+            },
+            "username": "juliusomo"
+          }
+        },
+        {
+          "id": 3,
+          "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "createdAt": "1 week ago",
+          "score": 8,
+          "replyingTo": "maxblagun",
+          "user": {
+            "image": {
+              "png": "https://forum.netcup.de/system/images/avatars/e8/1215-e84a6e1d30abdfd4d75c8b9e4753b55eb721c478.png",
+              "webp": "https://forum.netcup.de/system/images/avatars/e8/1215-e84a6e1d30abdfd4d75c8b9e4753b55eb721c478.png"
+            },
+            "username": "ramsesmiron"
+          }
+        },
+        {
+          "id": 0.07873125916326051,
+          "content": "Do you speak English?",
+          "createdAt": "2 min ago",
+          "score": 4,
+          "replyingTo": "ramsesmiron",
+          "user": {
+            "image": {
+              "png": "https://hashtagme.ae/images/avtar.png",
+              "webp": "https://hashtagme.ae/images/avtar.png"
+            },
+            "username": "juliusomo"
+          }
+        }
+      ]
+    },
+    {
+      "id": 0.2581755178920808,
+      "content": "Привет я бы хотела познакомится",
+      "createdAt": "1 min ago",
+      "score": 4,
+      "user": {
+        "image": {
+          "png": "https://hashtagme.ae/images/avtar.png",
+          "webp": "https://hashtagme.ae/images/avtar.png"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 0.724821029477682,
+      "content": "edefger",
+      "createdAt": "1 min ago",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "https://hashtagme.ae/images/avtar.png",
+          "webp": "https://hashtagme.ae/images/avtar.png"
+        },
+        "username": "juliusomo"
+      }
+    }
+  ]
+}

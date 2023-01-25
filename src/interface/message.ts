@@ -46,7 +46,7 @@ export interface IComment {
     replies: Reply[];
 }
 
-export interface IMessage {
+export interface Comments {
     currentUser: CurrentUser;
     comments: IComment[];
 }

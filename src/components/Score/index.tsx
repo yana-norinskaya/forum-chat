@@ -1,7 +1,9 @@
-import {FC, useState} from "react";
-import {ScoreStyle} from "./styles";
+import {FC} from "react";
+
 import {MaterialIcon} from "../UI/MaterialIcon/MaterialIcon";
+
 import {theme} from "../../styles/theme";
+import {ScoreStyle} from "./styles";
 
 interface IScore{
     score?: number;

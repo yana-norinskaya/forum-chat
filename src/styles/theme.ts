@@ -6,6 +6,7 @@ export const theme = {
         bg: "#e4f2f2",
         grey: "#727575",
         dark: "#0f0535",
+        bgModal: "rgba(88,99,99,0.33)"
     },
     fontWeight: {
         s: 400,
@@ -31,5 +32,9 @@ export const theme = {
     imageSizes: {
         s: "44px",
         m: "54px"
+    },
+    animation: {
+        transaction: "all 0.3s ease",
+        opacity: 0.7
     }
 }

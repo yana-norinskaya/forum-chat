@@ -1,19 +1,18 @@
 import React from 'react';
-import {Container} from "./components/Container";
+
 import {useGetMessagesQuery} from './store/reducers/messages.api';
-import {FormSendMessage} from "./components/Form/FormSendMessage";
-import {Comments} from "./components/MessageContent/Comments";
-import {SectionMessage} from "./components/SectionMain"
-import {PostComment} from "./components/PostComment";
+
+import {Comments, PostComment, Container} from "./components";
+
 
 function App() {
-    const {isLoading, data: messages, error} = useGetMessagesQuery("comments");
+    const {data: comments} = useGetMessagesQuery("comments");
   return (
-    <Container>
-        {messages?.map((message) => <Comments key={message.id} singleComment={message} />)}
-        <PostComment/>
+        <Container>
+            {comments?.map((comment) => <Comments key={comment.id} singleComment={comment} />)}
+                <PostComment/>
 
-    </Container>
+        </Container>
   );
 }
 

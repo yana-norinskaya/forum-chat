@@ -1,4 +1,5 @@
 import {FC, ReactNode} from "react";
+
 import {Section} from "./style";
 
 export enum Width {
@@ -11,7 +12,12 @@ interface ISectionMain{
     children: ReactNode;
 }
 
-export const SectionMessage: FC<ISectionMain> = ({width = Width.message, children}) => {
+export const SectionComment: FC<ISectionMain> =
+    ({
+         width = Width.message,
+         children
+    }) => {
+
     return(
         <Section width={width}>
             {children}

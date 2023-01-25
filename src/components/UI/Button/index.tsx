@@ -1,6 +1,9 @@
 import React, {FC} from "react";
+
 import {TypeMaterialIconName} from "../../../interface/icon";
+
 import {ButtonStyle} from "./style";
+
 import {MaterialIcon} from "../MaterialIcon/MaterialIcon";
 
 export enum Variant {

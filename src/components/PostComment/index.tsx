@@ -1,18 +1,19 @@
 import React, {FC} from "react";
-import {FormSendMessage} from "../Form/FormSendMessage";
-import {SectionMessage} from "../SectionMain";
+
+import {SectionComment, FormSendComment} from "../../components";
+
 import {useSubmitComment} from "../../hooks/useSubmitComment";
 
 export const PostComment: FC = () => {
     const {onSubmit, setComment, comment} = useSubmitComment();
 
     return(
-        <SectionMessage>
-            <FormSendMessage
+        <SectionComment>
+            <FormSendComment
                 value={comment}
                 onSubmit={(e) => onSubmit(e)}
                 onChange={(e) => setComment(e.target.value)}
             />
-        </SectionMessage>
+        </SectionComment>
     )
 }

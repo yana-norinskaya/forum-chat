@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IComment, CurrentUser, Reply} from "../../interface/message";
+import {IComment, CurrentUser} from "../../interface/message";
 
 export const messagesApi = createApi({
     reducerPath: "messages/api",

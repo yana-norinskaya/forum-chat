@@ -15,7 +15,7 @@ export const useSubmitComment = () => {
         const date = {
             id: Math.random(),
             content:comment,
-            createdAt: "1 min ago",
+            createdAt: "now",
             score: 0,
             user: {
                 image: {

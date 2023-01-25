@@ -1,22 +1,29 @@
 import React, {Dispatch, FC, SetStateAction} from "react";
-import {SectionMessage, Width} from "../SectionMain";
-import {FormSendMessage} from "../Form/FormSendMessage";
-import {useFormSubmitReply} from "../../hooks/useFormSubmit";
+
+import {FormSendComment} from "../Forms/FormSendComment";
+
+import {useFormSubmitReply} from "../../hooks/useFormSubmitReply";
+
 import {IComment} from "../../interface/message";
 
 interface IPostReply{
     singleComment: IComment,
     replyTo: string;
-    setForm: Dispatch<SetStateAction<boolean>>
+    setToggleForm: Dispatch<SetStateAction<boolean>>
 }
 
-export const PostReply: FC<IPostReply> = ({singleComment, replyTo, setForm}) => {
+export const PostReply: FC<IPostReply> =
+    ({
+         singleComment,
+         replyTo,
+         setToggleForm
+    }) => {
 
-    const {comment, setComment, onSubmitComment} = useFormSubmitReply(singleComment, setForm, replyTo);
+    const {comment, setComment, onSubmitComment} = useFormSubmitReply(singleComment, setToggleForm, replyTo);
 
     return(
         <>
-            <FormSendMessage
+            <FormSendComment
                 onSubmit={(e) => onSubmitComment(e)}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}

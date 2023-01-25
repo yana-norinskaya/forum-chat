@@ -4,7 +4,7 @@ interface IFormStyle {
     width?: string
 }
 
-export const FormStyle = styled.form<IFormStyle>`
+export const FormComment = styled.form<IFormStyle>`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -12,12 +12,11 @@ export const FormStyle = styled.form<IFormStyle>`
   
 `
 
-export const Form = styled.form<IFormStyle>`
+export const FormReply = styled.form<IFormStyle>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   height: 160px;
   width: 100%;
-  
 `

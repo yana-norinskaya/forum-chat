@@ -2,7 +2,7 @@ import {IComment} from "../interface/message";
 import {Dispatch, FormEvent, SetStateAction} from "react";
 import {useGetMessageByIdMutation} from "../store/reducers/messages.api";
 
-export const UseFormEditComment = (singleComment: IComment, setEdit: Dispatch<SetStateAction<boolean>>) => {
+export const useFormEditComment = (singleComment: IComment, setToggleEdit: Dispatch<SetStateAction<boolean>>) => {
     const [getMessageById] = useGetMessageByIdMutation();
 
     const onSubmitEdit = async (e: FormEvent, editedContent: string) => {
@@ -14,9 +14,9 @@ export const UseFormEditComment = (singleComment: IComment, setEdit: Dispatch<Se
                 }
         await getMessageById(date as IComment);
 
-        setEdit(false)
+                setToggleEdit(false)
 }
 
     }
-    return {onSubmitEdit, setEdit }
+    return {onSubmitEdit, setToggleEdit }
 }

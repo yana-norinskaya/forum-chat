@@ -1,35 +1,40 @@
-import { Input } from "../UI/Input";
 import React, {Dispatch, FC, SetStateAction, useState} from "react";
-import {Form} from "./style";
-import {ButtonSubmit} from "../UI/ButtonSubmit";
 
-import {IComment, Reply} from "../../interface/message";
+import {ButtonSubmit, Input} from "../../components";
+
+import {IComment} from "../../interface/message";
+
 import {TextMessage} from "../MessageContent/style";
+import {FormComment} from "./style";
 
-import {UseFormEditComment} from "../../hooks/useFormEditComment";
+import {useFormEditComment} from "../../hooks/useFormEditComment";
 
 interface IForm {
     singleComment: IComment;
-    edit?: boolean;
-    setEdit: Dispatch<SetStateAction<boolean>>
+    toggleEdit?: boolean;
+    setToggleEdit: Dispatch<SetStateAction<boolean>>
 }
 
-export const FormEditComment: FC<IForm> = ({singleComment, edit, setEdit}) => {
+export const FormEditComment: FC<IForm> =
+    ({
+         singleComment,
+         toggleEdit,
+         setToggleEdit}) => {
 
     const [value, setValue] = useState(singleComment.content);
 
-    const {onSubmitEdit} = UseFormEditComment(singleComment, setEdit);
+    const {onSubmitEdit} = useFormEditComment(singleComment, setToggleEdit);
 
     return(
         <>
             {
-                edit
-                    ?   <Form onSubmit={(e) => onSubmitEdit(e, value)}>
+                toggleEdit
+                    ?   <FormComment onSubmit={(e) => onSubmitEdit(e, value)}>
                         <Input
                             value={value}
                             onChange={(e) => setValue(e.target.value)} />
                         <ButtonSubmit title="Update"/>
-                    </Form>
+                    </FormComment>
                     :   <TextMessage>
                         {singleComment.content}
                     </TextMessage>

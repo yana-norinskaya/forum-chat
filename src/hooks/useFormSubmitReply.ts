@@ -8,7 +8,12 @@ import {
 
 import {IComment} from "../interface/message";
 
-export const useFormSubmitReply = (singleComment: IComment, setForm: Dispatch<SetStateAction<boolean>>, replyTo: string) => {
+export const useFormSubmitReply = (
+    singleComment: IComment,
+    setForm: Dispatch<SetStateAction<boolean>>,
+    replyTo: string
+) => {
+
     const {data: currentUser} = useGetCurrentUserQuery("currentUser");
 
     const [comment, setComment] = useState("");
@@ -16,12 +21,14 @@ export const useFormSubmitReply = (singleComment: IComment, setForm: Dispatch<Se
     const [addComment] = useAddReplyMutation();
 
     const onSubmitComment = async (e: FormEvent) => {
+
         e.preventDefault();
+
         if(comment){
             const newReply = {
                 id: Math.random(),
                 content: comment,
-                createdAt: "2 min ago",
+                createdAt: "now",
                 score: 0,
                 replyingTo: replyTo,
                 user: {
@@ -39,6 +46,7 @@ export const useFormSubmitReply = (singleComment: IComment, setForm: Dispatch<Se
             }
 
             await addComment(date as IComment);
+
             setComment("");
             setForm(false);
         }else{
@@ -47,19 +55,4 @@ export const useFormSubmitReply = (singleComment: IComment, setForm: Dispatch<Se
     }
 
     return {onSubmitComment, setComment, comment, setForm, currentUser}
-}
-
-
-export const useDeleteByIdReply = (singleComment: IComment) => {
-    const [getMessageById] = useGetMessageByIdMutation();
-
-    const onDelete = async (id: number) => {
-        const date = {
-            ...singleComment,
-            replies: singleComment.replies.filter(item => item.id !== id)
-        }
-        await getMessageById(date as IComment);
-    }
-
-    return {onDelete}
 }

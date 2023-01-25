@@ -1,16 +1,25 @@
 import React, {FC, useState} from "react";
-import {RepliesSection, Wrap} from "./style";
+
 import {IComment, Reply} from "../../interface/message";
-import {SectionMessage, Width} from "../SectionMain";
-import {Score} from "../Score";
+import {Width} from "../SectionComment";
+import {Variant} from "../UI/Button";
+
 import {Flex, FlexValue} from "../../styles/flex";
-import {InfoUser} from "../UI/InfoUser";
-import {Button, Variant} from "../UI/Button";
-import {useDeleteByIdReply} from "../../hooks/useFormSubmit";
-import {FormEditReply} from "../Form/FormEdit";
-import {PostReply} from "../PostReply";
+import {RepliesSection, Wrap} from "./style";
+
+import {useDeleteByIdReply} from "../../hooks/useDeleteByIdReply";
+
 import {useGetCurrentUserQuery} from "../../store/reducers/messages.api";
-import {useChangeScoreReply} from "../../hooks/useChangeScore";
+import {useChangeScoreReply} from "../../hooks/useChangeScoreReply";
+
+import {
+    Score,
+    SectionComment,
+    InfoUser,
+    Button,
+    FormEditReply,
+    PostReply,
+    Modal} from "../../components";
 
 
 interface IReply{
@@ -18,24 +27,28 @@ interface IReply{
     singleComment: IComment
 }
 
-export const RepliesMessage: FC<IReply> = ({singleComment, reply}) => {
-    const {data: currentUser} = useGetCurrentUserQuery("currentUser");
+export const RepliesComments: FC<IReply> = ({singleComment, reply}) => {
 
     const {score, createdAt, user, id} = reply;
 
-     const [edit, setEdit] = useState(false)
-
-    const [form, setForm] = useState(false)
+    const {data: currentUser} = useGetCurrentUserQuery("currentUser");
 
     const {onDelete} = useDeleteByIdReply(singleComment);
 
-     const {onPlus, onPrev} = useChangeScoreReply(singleComment, score, id);
+    const {onPlus, onPrev} = useChangeScoreReply(singleComment, score, id);
+
+    const [toggleEdit, setToggleEdit] = useState(false);
+    const [toggleForm, setToggleForm] = useState(false);
+    const [toggleModal, setToggleModal] = useState(false);
 
     return(
         <>
         <RepliesSection>
-            <SectionMessage width={Width.reply} >
-                    <Score score={score} onPlus={() => onPlus()} onPrev={() => onPrev()}/>
+            <SectionComment width={Width.reply} >
+                    <Score
+                        score={score}
+                        onPlus={() => onPlus()}
+                        onPrev={() => onPrev()}/>
                     <Wrap>
                         <Flex align={FlexValue.stretch}>
                             <InfoUser
@@ -50,32 +63,42 @@ export const RepliesMessage: FC<IReply> = ({singleComment, reply}) => {
                                             title="Delete"
                                             icon="MdDelete"
                                             variant={Variant.warning}
-                                            onClick={() => onDelete(id)} />
+                                            onClick={() => setToggleModal(true)}/>
                                         <Button
                                             title="Edit"
                                             icon="MdEdit"
-                                            onClick={() => setEdit(!edit)}/>
+                                            onClick={() => setToggleEdit(!toggleEdit)}/>
                                     </>
                                     :   <Button
                                             title="Reply"
                                             icon="MdReply"
-                                            onClick={() => setForm(!form)}/>
+                                            onClick={() => setToggleForm(!toggleForm)}/>
                                 }
                             </Flex>
                         </Flex>
                             <FormEditReply
                                 reply={reply}
                                 singleComment={singleComment}
-                                edit={edit}
-                                setEdit={setEdit}
+                                toggleEdit={toggleEdit}
+                                setToggleEdit={setToggleEdit}
                             />
                     </Wrap>
-            </SectionMessage>
-            {form &&
-                <SectionMessage width={Width.reply}>
-                <PostReply singleComment={singleComment} replyTo={user.username} setForm={setForm}/>
-                </SectionMessage>
+            </SectionComment>
+
+            {toggleForm &&
+                <SectionComment width={Width.reply}>
+                <PostReply
+                    singleComment={singleComment}
+                    replyTo={user.username}
+                    setToggleForm={setToggleForm}/>
+                </SectionComment>
             }
+
+            {toggleModal &&
+                <Modal
+                    onDelete={() => onDelete(id)}
+                    onCancel={() => setToggleModal(false)}/>}
+
         </RepliesSection>
         </>
     )

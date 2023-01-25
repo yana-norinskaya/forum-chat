@@ -1,9 +1,12 @@
 import {FC} from "react";
-import styled from "styled-components";
-import {TextMessage} from "../../MessageContent/style";
-import {Avatar} from "../Avatar";
-import {useGetCurrentUserQuery} from "../../../store/reducers/messages.api";
 
+import styled from "styled-components";
+
+import {TextMessage} from "../../MessageContent/style";
+
+import {Avatar} from "../../../components";
+
+import {useGetCurrentUserQuery} from "../../../store/reducers/messages.api";
 
 export const UserName = styled.p(({theme}) => ({
     fontWeight: theme.fontWeight.m,

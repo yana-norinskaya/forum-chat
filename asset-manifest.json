@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/forum-chat/static/js/main.9f40c966.js",
+    "index.html": "/forum-chat/index.html",
+    "main.9f40c966.js.map": "/forum-chat/static/js/main.9f40c966.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9f40c966.js"
+  ]
+}
